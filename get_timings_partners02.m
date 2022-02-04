@@ -1,6 +1,6 @@
 %% HELPER: extract timings from my_experiment structure (for sbj 1 only)
 
-%  author: Doris Pischedda
+%  author: Doris Pischedda, Anuja Negi
 %   start: 2021/09/21
 
 % For decoding the partners (all trials).
@@ -94,10 +94,16 @@ run_num = 6;
     
      end
    
-     save(sprintf('onset_times_sub-%02i.mat', sbj), 'human', '-append')
-     save(sprintf('onset_times_sub-%02i.mat', sbj), 'robot', '-append')  
-     save(sprintf('onset_times_sub-%02i.mat', sbj), 'pc', '-append')  
+     % save onset times
+     if exist(sprintf('onset_times_sub-%02i.txt', sbj), 'file')
+        save(sprintf('onset_times_sub-%02i.txt', sbj), 'human', '-ASCII','-append')
+     else
+        save(sprintf('onset_times_sub-%02i.txt', sbj), 'human', '-ASCII')
+     end
      
+     save(sprintf('onset_times_sub-%02i.txt', sbj), 'robot', '-ASCII', '-append')  
+     save(sprintf('onset_times_sub-%02i.txt', sbj), 'pc', '-ASCII', '-append')
+      
  end
  
 end

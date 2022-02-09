@@ -1,0 +1,84 @@
+{
+    "descriptions": [
+        {
+            "dataType": "anat",
+            "suffix": "T1w",
+            "criteria": {
+                "in": {
+                    "SeriesDescription": "MPRAGE_freesurfer"
+                }
+            }
+        },
+        {
+            "dataType": "func",
+            "suffix": "bold",
+            "criteria": {
+                "in": {
+                    "PulseSequenceDetails": "%SiemensSeq%\\ep2d_bold"
+                }
+            },
+            "customHeader": {
+                "TaskName": "instructpartner"
+            }
+        },
+        {
+            "dataType": "fmap",
+            "suffix": "magnitude1",
+            "criteria": {
+                "in": {
+                    "PulseSequenceDetails": "%SiemensSeq%\\gre_field_mapping"
+                },
+                "equal": {
+                    "ImageType": [
+                        "ORIGINAL",
+                        "PRIMARY",
+                        "M",
+                        "ND"
+                    ],
+                    "EchoTime": 0.00519
+                }
+            }
+        },
+        {
+            "dataType": "fmap",
+            "suffix": "magnitude2",
+            "criteria": {
+                "in": {
+                    "PulseSequenceDetails": "%SiemensSeq%\\gre_field_mapping"
+                },
+                "equal": {
+                    "ImageType": [
+                        "ORIGINAL",
+                        "PRIMARY",
+                        "M",
+                        "ND"
+                    ],
+                    "EchoNumber": 2,
+                    "EchoTime": 0.00765
+                }
+            }
+        },
+        {
+            "dataType": "fmap",
+            "suffix": "phasediff",
+            "criteria": {
+                "in": {
+                    "PulseSequenceDetails": "%SiemensSeq%\\gre_field_mapping"
+                },
+                "equal": {
+                    "ImageType": [
+                        "ORIGINAL",
+                        "PRIMARY",
+                        "P",
+                        "ND",
+                        "PHASE"
+                    ]
+                }
+            },
+            "customHeader": {
+                "EchoTime1": 0.00519,
+                "EchoTime2": 0.00765
+            }
+        }
+    ]
+}
